@@ -1,0 +1,21 @@
+{
+  "name": "rest-api-nodejs-mongodb",
+  "version": "1.0.0",
+  "description": "sample app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Kumar Anil Dharra (PAnchal)",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "mongoose": "^5.7.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
