@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "Kumar Anil Dharra (PAnchal)",
+  "author": "Kumar Anil Dharra (Panchal)",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

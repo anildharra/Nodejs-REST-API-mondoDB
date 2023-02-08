@@ -19,6 +19,7 @@ module.exports = {
     try {
       const product = new Product(req.body);
       const result = await product.save();
+      console.log("createNewProduct() result ::",result);
       res.send(result);
     } catch (error) {
       console.log(error.message);
