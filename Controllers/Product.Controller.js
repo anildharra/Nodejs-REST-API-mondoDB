@@ -9,6 +9,7 @@ module.exports = {
       const results = await Product.find({}, { __v: 0 });
       // const results = await Product.find({}, { name: 1, price: 1, _id: 0 });
       // const results = await Product.find({ price: 699 }, {});
+      console.log("getAllProducts() results ::",results);
       res.send(results);
     } catch (error) {
       console.log(error.message);
@@ -51,15 +52,17 @@ module.exports = {
 
   findProductById: async (req, res, next) => {
     const id = req.params.id;
+    console.log("findProductById() id ::",id);
     try {
       const product = await Product.findById(id);
       // const product = await Product.findOne({ _id: id });
       if (!product) {
         throw createError(404, 'Product does not exist.');
       }
+      console.log("findProductById() product ::",product);
       res.send(product);
     } catch (error) {
-      console.log(error.message);
+      console.log("findProductById() error ::", error.message);
       if (error instanceof mongoose.CastError) {
         next(createError(400, 'Invalid Product id'));
         return;
@@ -73,11 +76,13 @@ module.exports = {
       const id = req.params.id;
       const updates = req.body;
       const options = { new: true };
-
+      console.log("updateAProduct() id ::",id);
+      console.log("updateAProduct() updates ::",updates);
       const result = await Product.findByIdAndUpdate(id, updates, options);
       if (!result) {
         throw createError(404, 'Product does not exist');
       }
+      console.log("updateAProduct() result ::",result);
       res.send(result);
     } catch (error) {
       console.log(error.message);
@@ -91,9 +96,11 @@ module.exports = {
 
   deleteAProduct: async (req, res, next) => {
     const id = req.params.id;
+    console.log("deleteAProduct() id ::",id);
     try {
       const result = await Product.findByIdAndDelete(id);
       // console.log(result);
+      console.log("deleteAProduct() result ::",result);
       if (!result) {
         throw createError(404, 'Product does not exist.');
       }
